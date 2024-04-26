@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\suedehead\\Desktop\\RedTeam\\NetNtlmv2_Stealer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{359BFE48-428A-46A2-A79F-DF6BD0F43338}|NetNtlmv2_Stealer\\NetNtlmv2_Stealer.csproj|c:\\users\\suedehead\\desktop\\redteam\\netntlmv2_stealer\\netntlmv2_stealer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{359BFE48-428A-46A2-A79F-DF6BD0F43338}|NetNtlmv2_Stealer\\NetNtlmv2_Stealer.csproj|solutionrelative:netntlmv2_stealer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\suedehead\\Desktop\\RedTeam\\NetNtlmv2_Stealer\\NetNtlmv2_Stealer\\Program.cs",
+              "RelativeDocumentMoniker": "NetNtlmv2_Stealer\\Program.cs",
+              "ToolTip": "C:\\Users\\suedehead\\Desktop\\RedTeam\\NetNtlmv2_Stealer\\NetNtlmv2_Stealer\\Program.cs",
+              "RelativeToolTip": "NetNtlmv2_Stealer\\Program.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T21:19:50.419Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
